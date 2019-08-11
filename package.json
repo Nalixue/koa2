@@ -1,0 +1,36 @@
+{
+  "name": "koa2",
+  "version": "1.0.0",
+  "description": "koa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node Server/index",
+    "dev": "webpack --mode development",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nalixue/koa2.git"
+  },
+  "author": "naxiaopu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nalixue/koa2/issues"
+  },
+  "homepage": "https://github.com/Nalixue/koa2#readme",
+  "dependencies": {
+    "koa": "2.7.0",
+    "koa-router": "7.4.0",
+    "react": "16.9.0",
+    "react-router": "5.0.1"
+  },
+  "devDependencies": {
+    "css-loader": "3.2.0",
+    "html-webpack-plugin": "3.2.0",
+    "less-loader": "5.0.0",
+    "style-loader": "1.0.0",
+    "webpack": "4.39.1",
+    "webpack-cli": "3.3.6"
+  }
+}
