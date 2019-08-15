@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './Web/src/index.js',
+    entry: './Web/src/app.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
@@ -11,10 +11,10 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx$/,
-                exclude: /node_modules/,
-                use: {
-                  loader: 'babel-loader'
+                test: /\.jsx?$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015', 'react']
                 }
             }, {
                 test: /\.css$/,
@@ -29,12 +29,12 @@ module.exports = {
     resolve: {
         alias: {
             '@src': path.resolve(__dirname, 'Web/src'),
-        }
+        },
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: './Web/src/index.html',
-            filename: './Web/index.html'
+            template: './Web/index.html',
+            filename: './index.html'
         }),
         // // 构建优化插件
         // new webpack.optimize.CommonsChunkPlugin({
