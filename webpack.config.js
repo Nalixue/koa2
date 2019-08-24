@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MyPlugin = require('./Web/src/plugin/myplugin.js');
 
 module.exports = {
     entry: './Web/src/app.js',
@@ -23,6 +24,11 @@ module.exports = {
                     'css-loader',
                     'less-loader'
                 ]
+            }, {
+                test: /\.txt/,
+                use: [
+                    './Web/src/loader/myLoader2.js', './Web/src/loader/myLoader1.js'
+                ]
             }
         ]
     },
@@ -36,6 +42,7 @@ module.exports = {
             template: './Web/index.html',
             filename: './index.html'
         }),
+        new MyPlugin({name: 'nana'}),
         // // 构建优化插件
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'vendor',
