@@ -42,7 +42,10 @@ module.exports = {
             template: './Web/index.html',
             filename: './index.html'
         }),
-        new MyPlugin({name: 'nana'}),
+        new webpack.DefinePlugin({
+            __IS_MOCK__: process.argv.includes('--mock'),
+        }),
+        new MyPlugin({ name: 'nana' }),
         // // 构建优化插件
         // new webpack.optimize.CommonsChunkPlugin({
         //     name: 'vendor',
