@@ -99,15 +99,11 @@ module.exports = {
             workerCount: '',
             sourceMap: false
         }),
-        new MyPlugin({ name: 'nana' }),
-        // // 构建优化插件
-    
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //       warnings: false,
-        //       drop_console: false,
-        //     }
-        // }),
+        new MyPlugin((res) => {
+            console.log('编译成功'); // 请求成功
+        }, (err) => {
+            console.log('编译失败');
+        }),
         
     ],
     devServer: {

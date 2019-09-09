@@ -1,7 +1,8 @@
 module.exports = class Myplugin {
     // 接手参数
-    constructor(options) {
-        this.options = options
+    constructor(doneCallback, failCallback) {
+        this.doneCallback = doneCallback;
+        this.failCallback = failCallback;
     }
 
     /**
@@ -9,12 +10,11 @@ module.exports = class Myplugin {
      * compiler：包含很多hooks 对象可在整个编译生命周期访问
      * compilation：写入文件*/ 
     apply(compiler) {
-        // console.log(this.options.name);
-        // console.log(compiler)
-        compiler.plugin('emit', (compilation, next) => {
-            // console.log(compilation)
-
-            next()
-        })
+        compiler.plugin('done', (res) => {
+            this.doneCallback(res);
+        });
+        compiler.plugin('failed', (res) => {
+            this.failCallback(res);
+        });
     }
 }
