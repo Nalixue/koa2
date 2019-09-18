@@ -16,5 +16,8 @@ module.exports = class Myplugin {
         compiler.plugin('failed', (res) => {
             this.failCallback(res);
         });
+        // compiler.plugin('run', (res) => {
+
+        // });
     }
 }
