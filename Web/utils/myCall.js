@@ -10,7 +10,7 @@ function func(age, name) {
 
 Function.prototype.mycall = function() {
     // console.log(context, '1111');
-    // console.log(this, '8888888');
+    // console.log(this, '8888888');  this就是方法
     var context = arguments[0];
     context.fn = this;
     var argsLen = arguments.length;
